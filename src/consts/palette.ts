@@ -1,0 +1,11 @@
+export default {
+  MAIN_BLUE: '#0C48A1',
+  LIGHT_BLUE: '#E6EEF8',
+  HALF_BLACK: '#637A86',
+  BLACK: '#232B2F',
+  MIDDLE_GRAY: '#E9EDEF',
+  WHITE: '#FFFFFF',
+  BLUE_GRAY: '#BBC5CB',
+  LIGHT_GRAY: '#F7F7F7',
+  GREEN: '#72BC7E',
+};
