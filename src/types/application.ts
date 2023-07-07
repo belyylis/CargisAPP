@@ -1,3 +1,9 @@
+enum Statuses {
+  ACTIVE = 'active',
+  ON_PAUSE = 'on_pause',
+  COMPLETED = 'ocmpleted',
+}
+
 export type Application = {
   id: number;
   order_number: string | null;
@@ -24,7 +30,7 @@ export type Application = {
   quantity_partners: number;
   quantity_trips: number;
   offers_count: number;
-  status_1c: string;
+  status_1c: Statuses;
   company: Company;
 };
 

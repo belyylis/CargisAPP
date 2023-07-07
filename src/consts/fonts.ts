@@ -1,7 +1,7 @@
 import { Palette } from 'consts';
 import { TextStyle } from 'react-native';
 
-const Header: TextStyle = {
+export const Header: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 20,
@@ -9,7 +9,7 @@ const Header: TextStyle = {
   color: Palette.BLACK,
 };
 
-const Title: TextStyle = {
+export const Title: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 16,
@@ -17,7 +17,7 @@ const Title: TextStyle = {
   color: Palette.BLACK,
 };
 
-const SubTitle: TextStyle = {
+export const SubTitle: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: 9,
@@ -25,21 +25,21 @@ const SubTitle: TextStyle = {
   color: Palette.HALF_BLACK,
 };
 
-const Status: TextStyle = {
+export const Status: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: 11,
   lineHeight: 16,
 };
 
-const Button: TextStyle = {
+export const Button: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 14,
   lineHeight: 24,
 };
 
-const InfoSmall: TextStyle = {
+export const InfoSmall: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '400',
   fontSize: 11,
@@ -47,7 +47,7 @@ const InfoSmall: TextStyle = {
   color: Palette.HALF_BLACK,
 };
 
-const Usually: TextStyle = {
+export const Usually: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '500',
   fontSize: 13,
@@ -55,13 +55,13 @@ const Usually: TextStyle = {
   color: Palette.BLACK,
 };
 
-const Comment: TextStyle = {
+export const Comment: TextStyle = {
   ...Usually,
   fontWeight: '400',
   color: Palette.BLUE_GRAY,
 };
 
-const Adress: TextStyle = {
+export const Adress: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '400',
   fontSize: 12,
@@ -69,7 +69,7 @@ const Adress: TextStyle = {
   color: Palette.BLACK,
 };
 
-const TextButton: TextStyle = {
+export const TextButton: TextStyle = {
   fontFamily: 'Inter',
   fontWeight: '600',
   fontSize: 13,

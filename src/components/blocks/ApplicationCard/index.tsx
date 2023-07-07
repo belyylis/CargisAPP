@@ -6,11 +6,15 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { Buttons, Icons } from 'components';
+import { Buttons, Icons, Wrappers } from 'components';
 import { Application } from 'types/application';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { Fonts, Screens } from 'consts';
+import Elements from 'components/elements';
 
 const ApplicationCard: React.FC<Application> = application => {
+  const naigation = useNavigation();
   const [isOpen, setIsOpen] = useState(false);
 
   // Arrow animation
@@ -29,7 +33,7 @@ const ApplicationCard: React.FC<Application> = application => {
     arrowRotation.value = withTiming(180, {
       duration: 300,
     });
-    contentHeight.value = withTiming(312, {
+    contentHeight.value = withTiming(400, {
       duration: 300,
     });
   };
@@ -56,9 +60,7 @@ const ApplicationCard: React.FC<Application> = application => {
       <View style={styles.topInfoWrapper}>
         <View style={styles.numberAndStatusWrapper}>
           <Text style={styles.number}>Заявка №{application.id}</Text>
-          <View style={styles.statusWrapper}>
-            <Text style={styles.status}>Активная</Text>
-          </View>
+          <Elements.StatusBadge status={application.status_1c} />
         </View>
         <View style={styles.subInfoWrapper}>
           <Text style={styles.createDate}>От 10.02.22</Text>
@@ -83,11 +85,61 @@ const ApplicationCard: React.FC<Application> = application => {
         </TouchableOpacity>
       </View>
       <Animated.View style={[styles.contentWrapper, contentAnimatedStyle]}>
+        <View style={styles.infoWrapper}>
+          <Wrappers.InfoWrapper title="ЗАКАЗЧИК">
+            <View style={styles.companyContainer}>
+              <Text style={styles.company}>
+                {application.company.short_name}
+              </Text>
+              <Icons.CheckMarkIcon />
+              <Icons.InfoIcon />
+            </View>
+          </Wrappers.InfoWrapper>
+          <Wrappers.InfoWrapper title="МАРШРУТ ПЕРЕВОЗКИ">
+            <View style={styles.routesWrapper}>
+              <View style={styles.routeWrapper}>
+                <Icons.StartIcon />
+                <Text style={styles.route}>{application.loading_address}</Text>
+              </View>
+              <View style={styles.routeWrapper}>
+                <Icons.DestinationIcon />
+                <Text style={styles.route}>
+                  {application.unloading_address}
+                </Text>
+              </View>
+              <View style={styles.routeWrapper}></View>
+            </View>
+          </Wrappers.InfoWrapper>
+          <View style={styles.shortsInfoContainer}>
+            <Wrappers.InfoWrapper
+              title="РАССТОЯНИЕ"
+              style={styles.distanceContainer}>
+              <Text style={styles.distance}>1 375 км</Text>
+            </Wrappers.InfoWrapper>
+            <Wrappers.InfoWrapper
+              title="ТАРИФ"
+              style={styles.distanceContainer}>
+              <Text style={styles.distance}>1 375 км</Text>
+            </Wrappers.InfoWrapper>
+            <Wrappers.InfoWrapper title="ГРУЗ" style={styles.distanceContainer}>
+              <Text style={styles.distance}>{application.cargo_type}</Text>
+            </Wrappers.InfoWrapper>
+            <Wrappers.InfoWrapper
+              title="ВСЕГО К ПЕРЕВОЗКЕ"
+              style={styles.distanceContainer}>
+              <Text style={styles.distance}>1 375 км</Text>
+            </Wrappers.InfoWrapper>
+          </View>
+        </View>
         <View style={styles.buttonsWrapper}>
           <Buttons.BasicButton
             text="Подробнее"
             type="OUTLINE"
-            onPress={() => {}}
+            onPress={() => {
+              naigation.navigate(Screens.ApplicationDetailScreen, {
+                application,
+              });
+            }}
           />
           <Buttons.BasicButton
             text="Оставить отклик"

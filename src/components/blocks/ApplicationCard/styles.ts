@@ -1,4 +1,5 @@
-import { Fonts, Palette } from 'consts';
+import { Palette } from 'consts';
+import Fonts from 'consts/fonts';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -45,7 +46,6 @@ export default StyleSheet.create({
     ...Fonts.Status,
     color: Palette.MAIN_BLUE,
   },
-
   subInfoWrapper: {
     flexDirection: 'row',
   },
@@ -70,6 +70,39 @@ export default StyleSheet.create({
   },
   contentWrapper: {
     width: '100%',
+  },
+  infoWrapper: {
+    padding: 16,
+  },
+  companyContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  company: {
+    ...Fonts.Usually,
+    marginRight: 8,
+  },
+  routesWrapper: {
+    marginTop: 8,
+  },
+  routeWrapper: {
+    flexDirection: 'row',
+    marginBottom: 8,
+  },
+  route: {
+    ...Fonts.Adress,
+    marginLeft: 8,
+  },
+  shortsInfoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
+  distanceContainer: {
+    width: 160,
+  },
+  distance: {
+    ...Fonts.Usually,
   },
   buttonsWrapper: {
     position: 'absolute',
